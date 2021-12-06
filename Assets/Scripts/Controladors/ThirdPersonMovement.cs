@@ -23,8 +23,7 @@ public class ThirdPersonMovement : MonoBehaviour
 
     // Moviment lateral
     [Header("Moviment lateral")]
-    [SerializeField] private float maxSpeedLateral = 6f;
-    [SerializeField] private float accelerationLateral = 3f;
+    [SerializeField] private float speedLateralPercent = .5f;
     private float speedLateral = 0f;
     private float direccioLateral = 0f;
 
@@ -83,6 +82,9 @@ public class ThirdPersonMovement : MonoBehaviour
             if (Mathf.Abs(pushVelocity.z) < .01f) pushVelocity.z = 0;
 
             controller.Move(pushVelocity * Time.deltaTime);
+
+            // Calculem la velocitat lateral
+            speedLateral = Mathf.Abs(pushVelocity.z) * speedLateralPercent;
         }
         // Fi Moviment Push
 
@@ -97,12 +99,18 @@ public class ThirdPersonMovement : MonoBehaviour
 
             gravityVelocity.y += gravity * Time.deltaTime;
             controller.Move(gravityVelocity * Time.deltaTime);
+
+            // Calculem la velocitat frontal
+            if (speed < maxSpeed) speed += acceleration * Time.deltaTime;
+
+            // Calculem la velocitat lateral
+            speedLateral = speed * speedLateralPercent;
         }
         // Fi Gravity
 
         // Moviment Jugador
-        moveSide();
         moveForward();
+        moveSide();
 
         Vector3 newPos = transform.position;
         velocity = (newPos - prevPos) / Time.deltaTime;
@@ -124,7 +132,6 @@ public class ThirdPersonMovement : MonoBehaviour
     {
         if (applyMovement)
         {
-            if (speed < maxSpeed) speed += acceleration * Time.deltaTime;
             Vector3 direction = new Vector3(0f, 0f, 1f).normalized;
             controller.Move(direction * speed * Time.deltaTime);
         }
@@ -164,8 +171,9 @@ public class ThirdPersonMovement : MonoBehaviour
     */
     private void moveSide()
     {
-        if (speedLateral < maxSpeedLateral) speedLateral += accelerationLateral * Time.deltaTime;
-        if (applyMovement && direccioLateral != 0)
+        //if (speedLateral < maxSpeedLateral) speedLateral += accelerationLateral * Time.deltaTime;
+        //if (applyMovement && direccioLateral != 0)
+        if (direccioLateral != 0)
         {
             Vector3 direction = new Vector3(1f, 0f, 0f).normalized;
             controller.Move((direction * direccioLateral) * speedLateral * Time.deltaTime);

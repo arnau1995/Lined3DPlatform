@@ -127,6 +127,7 @@ Transform:
   - {fileID: 2406996694768831387}
   - {fileID: 1491811959922763338}
   - {fileID: 1491811959810349114}
+  - {fileID: 7601043205790737335}
   - {fileID: 1491811959503856511}
   - {fileID: 6334424123451309349}
   m_Father: {fileID: 0}
@@ -192,7 +193,7 @@ Transform:
   - {fileID: 7368373000062009564}
   - {fileID: 3949911116202876251}
   m_Father: {fileID: 1491811959205441464}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1491811959810349117
 GameObject:
@@ -377,6 +378,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6058424541169088087}
   - component: {fileID: 4407377948891043724}
+  - component: {fileID: 6425263669274854146}
   m_Layer: 8
   m_Name: Ball Spawner
   m_TagString: Untagged
@@ -410,8 +412,80 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8fb231659401b7d41b1c6b42aa6dce03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxTimeBall: 2
+  maxTimeBall: 4.5
   ball: {fileID: 3405774493837468078, guid: b5bbeb1b3e9088b429493a3eca97e03a, type: 3}
+--- !u!65 &6425263669274854146
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2738881428124121979}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 6, y: 1, z: 1.6}
+  m_Center: {x: 0, y: 0, z: -0.3}
+--- !u!1 &3127716237170788815
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7601043205790737335}
+  - component: {fileID: 2266699018712337327}
+  - component: {fileID: 1120379281165856272}
+  m_Layer: 0
+  m_Name: Landed
+  m_TagString: Landed
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7601043205790737335
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3127716237170788815}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: -12, z: 27}
+  m_LocalScale: {x: 5, y: 1, z: 8.2}
+  m_Children: []
+  m_Father: {fileID: 1491811959205441464}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &2266699018712337327
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3127716237170788815}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 10, y: 4, z: 8}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1120379281165856272
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3127716237170788815}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca0978a4bb71d924b8aa064274525b7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 2
+  collisionForce: 0
 --- !u!1 &3448118127916233659
 GameObject:
   m_ObjectHideFlags: 0
@@ -442,7 +516,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1491811959205441464}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &7325031952858883911
 BoxCollider:
@@ -493,7 +567,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6416556441767240854}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -3.75, z: -4.52}
+  m_LocalPosition: {x: 0, y: 0, z: -4.52}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1491811959205441464}
@@ -526,7 +600,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8059347555475819263}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -3.75, z: -2.02}
+  m_LocalPosition: {x: 0, y: 0, z: -2.02}
   m_LocalScale: {x: 8.5, y: 1, z: 5}
   m_Children: []
   m_Father: {fileID: 1491811959503856511}

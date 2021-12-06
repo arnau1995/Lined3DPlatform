@@ -10,6 +10,9 @@ TagManager:
   - Wall
   - PlayerMesh
   - Combination
+  - Obstacle Option Full
+  - Obstacle Option Single
+  - Landed
   layers:
   - Default
   - TransparentFX

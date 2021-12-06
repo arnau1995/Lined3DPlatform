@@ -1340,8 +1340,7 @@ MonoBehaviour:
   acceleration: 4
   timeToStandUp: 1
   velocityToStandUp: 0.0001
-  maxSpeedLateral: 3
-  accelerationLateral: 1.5
+  speedLateralPercent: 0.5
   gravity: -29.43
   groundCheck: {fileID: 1477204883}
   groundMask:
@@ -1774,7 +1773,7 @@ MonoBehaviour:
   printSwipes: 0
   playerMovement: {fileID: 628906128}
   monitorHorizontalPixelPercent: 25
-  monitorVerticalPixelPercent: 10
+  monitorVerticalPixelPercent: 15
   maxTimeToSwipeUp: 0.1
 --- !u!114 &1199833864
 MonoBehaviour:
@@ -1790,15 +1789,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   map: {fileID: 282938728}
   mapCombinations:
-  - percent: 2000
+  - percent: 40
     combi: {fileID: 863785356778132289, guid: 6efb6146daa80cb4282f2833eae65352, type: 3}
   - percent: 20
     combi: {fileID: 7066018090978053842, guid: 32b9aa5e9a0593b419aace4b811fa977, type: 3}
-  - percent: 20
+  - percent: 15
     combi: {fileID: 3752151315338941191, guid: 2e59e700954059a4990d1da29056928e, type: 3}
-  - percent: 20
+  - percent: 15
     combi: {fileID: 1491811959205441467, guid: c6058a7357751504b8783203dffce33c, type: 3}
-  - percent: 20
+  - percent: 10
     combi: {fileID: 8243252887213103310, guid: ab81c0f32f61086469d3479d5537b3ad, type: 3}
   startSpawnCombi: 3
 --- !u!1 &1290814770 stripped

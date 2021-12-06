@@ -9,7 +9,7 @@ public class ObstacleController : MonoBehaviour
 
     private Vector3 antPosition;
     private Vector3 velocity;
-    private enum EnumType{R,Q};
+    private enum EnumType{R,Q,L};
 
     void Start()
     {
@@ -61,29 +61,38 @@ public class ObstacleController : MonoBehaviour
 
     public void playerCollided(GameObject player)
     {
-        Vector3 pushVel = new Vector3();
-        ThirdPersonMovement playerMovement = player.GetComponent<ThirdPersonMovement>();
-        
-        if (type == EnumType.R)
+        if (type == EnumType.L)
         {
-            // Calcular la velocitat de rebot
-            pushVel = (player.transform.position - transform.position).normalized;
+            Application.Quit();
         }
-        else if (type == EnumType.Q)
+        else
         {
-            // Calcul distancia amb parent, agafar la distancia més gran (x, y o z)
-            pushVel = (transform.position - transform.parent.position).normalized;
+            Vector3 pushDirect = new Vector3();
+            Vector3 pushVel = new Vector3();
+            ThirdPersonMovement playerMovement = player.GetComponent<ThirdPersonMovement>();
+            
+            if (type == EnumType.R)
+            {
+                // Calcular la velocitat de rebot
+                pushDirect = (player.transform.position - transform.position).normalized;
+            }
+            else if (type == EnumType.Q)
+            {
+                // Calcul distancia amb parent, agafar la distancia més gran (x, y o z)
+                pushDirect = (transform.position - transform.parent.position).normalized;
+            }
+
+            pushVel = pushDirect * collisionForce;
+
+            // Suma la velocitat que porta l'obstace
+            pushVel += velocity;
+
+            // Suma la velocitat que porta el Player (Ja que serà contraria)
+            Vector3 playerPushDirect = new Vector3(1 - pushDirect.x, 1 - pushDirect.y, 1 - pushDirect.z);
+            pushVel += Vector3.Scale(playerMovement.getVelocity(), playerPushDirect);
+            
+            // Emputxa al Player
+            playerMovement.push(pushVel);
         }
-
-        pushVel *= collisionForce;
-
-        // Suma la velocitat que porta l'obstace
-        pushVel += velocity;
-
-        // Suma la velocitat que porta el Player (Ja que serà contraria)
-        pushVel += playerMovement.getVelocity();
-        
-        // Emputxa al Player
-        playerMovement.push(pushVel);
     }
 }
