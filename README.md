@@ -1,6 +1,7 @@
 # Lined3DPlatform
 
 -- CAT --
+
 Es tracta d'un joc "endless runner" en 3D, on el jugador haurà de mantenir al personatge sobre les plataformes sense caure en cap moment.
 
 Aquest joc està pensat per dispositius mòbils i el jugador haurà de jugar fent lliscar els dits de dreta i esquerra per fer moure el personatge lateralment, mentre el jugador automàticament avançarà cap endavant.
@@ -16,6 +17,7 @@ Actualment, el joc està en desenvolupament.
 En la fase actual, el jugador pot desplaçar el personatge lateralment i aquest es mou cap endavant. La creació del mapa és totalment dinàmica dins unes pautes establertes.
 
 -- ESP --
+
 Se trata de un juego en 3D "Endless Runner", donde el jugador tendrá que mantener al personaje en las plataformas sin caer en ningún momento.
 
 Este juego está diseñado para dispositivos móviles y el jugador tendrá que jugar deslizando los dedos de derecha a izquierda para mover el personaje lateralmente, mientras que avanzará automáticamente.
